@@ -2,13 +2,15 @@
 
 int main() {
 
+    int c;
     long nc = 0;
 
-    while (getchar() != EOF) {
+    while ((c = (getchar() != EOF))) {
+        printf("%d", c);
         nc++;
     }
 
-    printf("%ld\n", nc);
+    printf("\n%d\n%ld\n", c, nc);
 
     return 0;
 }
