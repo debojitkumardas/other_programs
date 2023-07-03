@@ -2,22 +2,35 @@
 
 /* the word count program */
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 #define IN  1
 #define OUT 0
 
-int main() {
+typedef struct {
+    char *text;
+    int len;
+} result;
 
+result* test_01() {
     char test_string[] = "Hello, World!! This is a word counting program.\n";
-    long str_len = strlen(test_string);
+    int len = strlen(test_string);
 
-    int c, nl, nw, nc, state;
+    result *ptr = malloc(sizeof(result));
 
-    state = OUT;
-    nl = nw = nc = 0;
-    for (int i = 0; i < str_len; ++i) {
-        c = test_string[i];
+    ptr->text = test_string;
+    ptr->len = len;
+
+    return ptr;
+}
+
+void counting(int *nl, int *nw, int *nc, char text[]) {
+
+    int c, state = OUT;
+
+    for (int i = 0; text[i] != 0; ++i) {
+        c = text[i];
         ++nc;
         if (c == '\n')
             ++nl;
@@ -28,6 +41,16 @@ int main() {
             ++nw;
         }
     }
+}
+
+int main() {
+
+    char test_string[] = "Hello, World!! This is a word counting program.\n";
+
+    int nl, nw, nc;
+
+    nl = nw = nc = 0;
+    counting(&nl, &nw, &nc, test_string);
 
     printf("Number of lines: %d\n", nl);
     printf("Number of words: %d\n", nw);
