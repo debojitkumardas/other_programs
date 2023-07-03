@@ -2,21 +2,16 @@
 
 #include <stdio.h>
 
-#define IN  1
-#define OUT 0
-
 int main() {
 
     char test_string[] = "Hello, World!! This is an interesting program.\n";
-    int c, state;
+    int c;
 
-    state = OUT;
     for (int i = 0; test_string[i] != 0; ++i) {
         c = test_string[i];
-        if (c == ' ' || c == '\t' || c == '\n')
-            state = OUT;
-        else if (state == OUT) {
-            state = IN;
-        }
+        if (c == ' ' || c == '\t')
+            printf("\n");
+        else
+            putchar(c);
     }
 }
