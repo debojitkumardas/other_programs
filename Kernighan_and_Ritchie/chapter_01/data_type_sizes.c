@@ -13,5 +13,15 @@ int main() {
     printf("size of unsigned short %ld bytes.\n", sizeof(unsigned short));
     printf("size of unsigned long %ld bytes.\n", sizeof(unsigned long));
 
+    int a;
+    char c;
+    printf("Enter an int: ");
+    scanf("%d", &a);
+    printf("Enter a char: ");
+    scanf(" %c", &c);
+
+    printf("The entered integer is: %d\n", a);
+    printf("The entered character is: %c\n", c);
+
     return 0;
 }
