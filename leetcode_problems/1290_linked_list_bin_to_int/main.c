@@ -69,6 +69,8 @@ int main(void) {
 
     printf("The result is: %d\n", get_decimal_value(head));
 
+    delete_list(&head);
+
     return 0;
 
 }
