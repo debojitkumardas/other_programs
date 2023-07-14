@@ -7,15 +7,20 @@ int main(void)
     int msec;  // time in millisecond
 
     msec = 100;  // specifying wait time as 100 millisecond
-    ts.tv_sec = msec / 1000;
-    ts.tv_nsec = (msec % 1000) * 1000000;
+
+    // using the time spect structure;
+    ts.tv_sec = msec / 1000;  // time in millisecond converted to second
+    ts.tv_nsec = (msec % 1000) * 1000000;  // millisecond to nanosecond (0 < t < 1000)
 
     printf("The progress bar.\t");
 
     for (int i = 1; i < 101; i++) {
-        if (i % 10 == 0)
+        // for every 10% show the progress as #
+        if (i % 5 == 0)
             printf("#");
 
+        // the animation for the progress
+        // as follows -\|/-
         if (i % 4 == 0 && i != 100)
             printf("-");
         if (i % 4 == 1)
@@ -35,6 +40,7 @@ int main(void)
     }
 
     printf("\n");
+    printf("Hello, World!!\r\n");
 
     return 0;
 }

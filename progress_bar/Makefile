@@ -1,8 +1,10 @@
-progress_bar: progress_bar.o
-	gcc -g progress_bar.o -o progress_bar
+CC=gcc
+CFLAGS=-Wall -Werror -Wextra -g
 
-progress_bar.o: progress_bar.c
-	gcc -g -c progress_bar.c -o progress_bar.o
+SRC=$(wildcard *.c)
+BIN=$(patsubst %.c, %, $(SRC))
+
+all: $(BIN)
 
 clean:
-	rm -rf *.o progress_bar
+	rm -rf $(BIN)
