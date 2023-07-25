@@ -1,0 +1,38 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-I",
+      ".",
+      "-c",
+      "-o",
+      "hash_set.o",
+      "hash_set.c"
+    ],
+    "directory": "/home/debojitkumardas/Programs/things_to_put_in_github/other_programs/leetcode_problems/705_hashset",
+    "file": "/home/debojitkumardas/Programs/things_to_put_in_github/other_programs/leetcode_problems/705_hashset/hash_set.c",
+    "output": "/home/debojitkumardas/Programs/things_to_put_in_github/other_programs/leetcode_problems/705_hashset/hash_set.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-Wall",
+      "-Werror",
+      "-Wextra",
+      "-g",
+      "-I",
+      ".",
+      "-c",
+      "-o",
+      "main.o",
+      "main.c"
+    ],
+    "directory": "/home/debojitkumardas/Programs/things_to_put_in_github/other_programs/leetcode_problems/705_hashset",
+    "file": "/home/debojitkumardas/Programs/things_to_put_in_github/other_programs/leetcode_problems/705_hashset/main.c",
+    "output": "/home/debojitkumardas/Programs/things_to_put_in_github/other_programs/leetcode_problems/705_hashset/main.o"
+  }
+]
