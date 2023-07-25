@@ -47,6 +47,7 @@ node* middle_node(node *head) {
     while (head != NULL) {
 
         l1++;
+        // for even number of elements consider the (n/2 + 1)th element
         if (l1 >= 2 * l2) {
             l2++;
             temp = temp->next;
