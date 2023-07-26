@@ -4,5 +4,7 @@
 *.d
 # ignore all .cache directores
 /.cache
+# ignore all bin directores
+/bin
 #ignore compile_commands.json files
 compile_commands.json
