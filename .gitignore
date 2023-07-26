@@ -3,8 +3,8 @@
 # ignore all .d files
 *.d
 # ignore all .cache directores
-/.cache
+.cache/
 # ignore all bin directores
-/bin
+bin/
 #ignore compile_commands.json files
 compile_commands.json

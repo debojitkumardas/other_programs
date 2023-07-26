@@ -7,6 +7,7 @@
 * The answer to this puzzle is the product of the number os unshaded cells in each row.
 *   ******************************************** */
 // {' ', '6', ' ', ' ', ' ', ' ', ' '}
+#include <cstdlib>
 #include <iostream>
 
 void grid() {
@@ -19,11 +20,25 @@ void grid() {
         {'5', ' ', ' ', ' ', ' ', ' ', ' '},
         {' ', ' ', ' ', ' ', ' ', '4', ' '},
     };
+
+    for (int i = 0; i < 7; ++i) {
+        for (int j = 0; j < 7; ++j)
+            std::cout << grid_data[i][j] << " ";
+        std::cout << std::endl;
+    }
 }
 
 int main(int argc, char *argv[]) {
 
-    //
+    if(argc < 2) {
+        std::cerr << argc << " Command line arguments not provided. Exiting!!" << std::endl;
+        exit(1);
+    }
+    else {
+        std::cout << argv[argc - 1] << std::endl;
+    }
+
+    grid();
 
     return 0;
 }
