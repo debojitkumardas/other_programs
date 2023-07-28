@@ -10,7 +10,7 @@ int main() {
     for (int i = 0; test_string[i] != 0; ++i) {
         c = test_string[i];
         if (c == ' ' || c == '\t')
-            printf("\n");
+            putchar('\n');
         else
             putchar(c);
     }
