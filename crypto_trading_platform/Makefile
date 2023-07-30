@@ -1,7 +1,7 @@
 BIN_DIR=./bin/
 
 CXX=g++
-CXXFLAGS=-Wall -Werror -Wextra -Wpedantic -g -std=c++17
+CXXFLAGS=-Wall -Werror -Wextra -Wconversion -Wshadow -Wunreachable-code -pedantic -g -std=c++17
 
 SRC=$(wildcard *.cpp)
 OBJ=$(patsubst %.cpp, %.o, $(SRC))
