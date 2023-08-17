@@ -50,7 +50,15 @@ void insert_data(hash_set *hash_set_head, int key) {
 
     if (!contains(hash_set_head, key)) {
         int hash_val = hash_func(key);
-        insert_node_at_head(&(hash_set_head->set_list[hash_val]), key);
+        // insert_node_at_head(&(hash_set_head->set_list[hash_val]), key);
+
+        node *new_node = malloc(sizeof(node));
+
+        if (new_node != NULL) {
+            new_node->num = key;
+            new_node->next = hash_set_head->set_list[hash_val];
+            hash_set_head->set_list[hash_val] = new_node;
+        }
     }
 }
 

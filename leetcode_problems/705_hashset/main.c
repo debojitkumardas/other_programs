@@ -35,5 +35,7 @@ int main(void) {
     res = contains(&hash_set_head, 2);
     printf("set contains %d: %s\n", 2, text[res]);
 
+    printf("%d\n", -4 % 3);
+
     return 0;
 }
