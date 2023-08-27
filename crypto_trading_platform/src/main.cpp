@@ -49,8 +49,8 @@ int main() {
 
     std::vector<std::string> var{"one", "two"};
 
-    for (const std::string& x : var) {
-        std::cout << x << std::endl;
+    for (const std::string& itr : var) {
+        std::cout << itr << std::endl;
     }
 
     return 0;

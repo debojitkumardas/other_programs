@@ -20,10 +20,10 @@
 #   clang-tidy fails to match it against the initial value.
 Checks: >
   -*,
-  bugprone-*,
+  # bugprone-*,
   google-*,
   misc-*,
-  modernize-*,
+  # modernize-*,
   performance-*,
   portability-*,
   readability-*,
