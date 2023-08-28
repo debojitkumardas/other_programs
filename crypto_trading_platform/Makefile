@@ -3,7 +3,7 @@ BIN_DIR=./bin/
 
 CXX=g++
 DEPFLAGS=-MD -MP
-CXXFLAGS=-Wall -Werror -Wextra -Wconversion -Wshadow -Wunreachable-code -pedantic -std=c++17 -I . $(DEPFLAGS)
+CXXFLAGS=-Wall -Weffc++ -Werror -Wextra -Wconversion -Wshadow -Wunreachable-code -pedantic-errors -std=c++17 -I . $(DEPFLAGS)
 
 SRC=$(wildcard $(SRC_DIR)*.cpp)
 HDR=$(patsubst %.cpp, $(BIN_DIR)%.d, $(notdir $(SRC)))
@@ -12,8 +12,11 @@ BIN=$(BIN_DIR)main
 
 all: $(BIN)
 
-debug: CXXFLAGS += -DDEBUG -g
+debug: CXXFLAGS += -DDEBUG -ggdb
 debug: $(BIN)
+
+release: CXXFLAGS += -O2 -DNDEBUG
+release: $(BIN)
 
 $(BIN): $(OBJ)
 	$(CXX) $(CXXFLAGS) -o $@ $^
