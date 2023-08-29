@@ -14,7 +14,7 @@ int main(void)
 
     printf("The progress bar.\t");
 
-    for (int i = 1; i < 101; i++) {
+    for (int i = 1; i <= 100; i++) {
         // for every 10% show the progress as #
         if (i % 5 == 0)
             printf("#");
