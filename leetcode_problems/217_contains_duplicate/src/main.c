@@ -1,4 +1,4 @@
-#include "hash_set.h"
+#include "../hdr/hash_set.h"
 #include <stdio.h>
 
 int ContainsDuplicate(int *num, int len) {

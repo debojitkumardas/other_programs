@@ -1,4 +1,4 @@
-#include "hash_table.h"
+#include "../hdr/hash_table.h"
 #include <stdio.h>
 
 int compare_hash_table(hash_table *head_1, hash_table *head_2) {

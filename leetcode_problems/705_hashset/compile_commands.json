@@ -5,17 +5,20 @@
       "-Wall",
       "-Werror",
       "-Wextra",
-      "-g",
+      "-Wshadow",
+      "-pedantic",
       "-I",
       ".",
+      "-DDEBUG",
+      "-ggdb",
       "-c",
       "-o",
-      "hash_set.o",
-      "hash_set.c"
+      "bin/hash_set.o",
+      "src/hash_set.c"
     ],
     "directory": "/home/debojitkumardas/Programs/things_to_put_in_github/other_programs/leetcode_problems/705_hashset",
-    "file": "/home/debojitkumardas/Programs/things_to_put_in_github/other_programs/leetcode_problems/705_hashset/hash_set.c",
-    "output": "/home/debojitkumardas/Programs/things_to_put_in_github/other_programs/leetcode_problems/705_hashset/hash_set.o"
+    "file": "/home/debojitkumardas/Programs/things_to_put_in_github/other_programs/leetcode_problems/705_hashset/src/hash_set.c",
+    "output": "/home/debojitkumardas/Programs/things_to_put_in_github/other_programs/leetcode_problems/705_hashset/bin/hash_set.o"
   },
   {
     "arguments": [
@@ -23,16 +26,19 @@
       "-Wall",
       "-Werror",
       "-Wextra",
-      "-g",
+      "-Wshadow",
+      "-pedantic",
       "-I",
       ".",
+      "-DDEBUG",
+      "-ggdb",
       "-c",
       "-o",
-      "main.o",
-      "main.c"
+      "bin/main.o",
+      "src/main.c"
     ],
     "directory": "/home/debojitkumardas/Programs/things_to_put_in_github/other_programs/leetcode_problems/705_hashset",
-    "file": "/home/debojitkumardas/Programs/things_to_put_in_github/other_programs/leetcode_problems/705_hashset/main.c",
-    "output": "/home/debojitkumardas/Programs/things_to_put_in_github/other_programs/leetcode_problems/705_hashset/main.o"
+    "file": "/home/debojitkumardas/Programs/things_to_put_in_github/other_programs/leetcode_problems/705_hashset/src/main.c",
+    "output": "/home/debojitkumardas/Programs/things_to_put_in_github/other_programs/leetcode_problems/705_hashset/bin/main.o"
   }
 ]

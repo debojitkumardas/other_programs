@@ -1,19 +1,33 @@
-CC=gcc
-DEPFLAGS=-MP -MD
-CFLAGS=-Wall -Werror -Wextra -g -I . $(DEPFLAGS)
+# valgrind --enable-debuginfod=no --leak-check=full --show-leak-kinds=all --errors-for-leak-kinds=all --track-origins=yes -s --verbose --log-s --verbose --log-file=valgrind_out.txt ./bin/main
+#
+SRC_DIR=src/
+HDR_DIR=hdr/
+BIN_DIR=bin/
 
-SRC=$(wildcard *.c)
-HDR=$(patsubst %.c, %.d, $(SRC))
-OBJ=$(patsubst %.c, %.o, $(SRC))
-BIN=main
+CC=gcc
+DEPFLAGS=-MD -MP
+CFLAGS=-Wall -Werror -Wextra -Wshadow -pedantic -I . $(DEPFLAGS)
+
+SRC=$(wildcard $(SRC_DIR)*.c)
+HDR=$(wildcard $(HDR_DIR)*.h)
+
+HDR_D=$(patsubst %.c, $(BIN_DIR)%.d, $(notdir $(SRC)))
+OBJ=$(patsubst %.c, $(BIN_DIR)%.o, $(notdir $(SRC)))
+BIN=$(BIN_DIR)main
 
 all: $(BIN)
+
+debug: CFLAGS += -DDEBUG -ggdb
+debug: $(BIN)
 
 $(BIN): $(OBJ)
 	$(CC) $(CFLAGS) -o $@ $^
 
-%.o: %.c
+$(BIN_DIR)%.o: $(SRC_DIR)%.c $(HDR)
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 clean:
-	rm -rf $(HDR) $(OBJ) $(BIN)
+	rm -rf $(HDR_D) $(OBJ) $(BIN)
+
+clean_o:
+	rm -rf .cache compile_commands.json
