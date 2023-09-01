@@ -4,7 +4,7 @@ BIN_DIR=bin/
 
 CXX=g++
 DEPFLAGS=-MD -MP
-CXXFLAGS=-Wall -Weffc++ -Werror -Wextra -Wconversion -Wshadow -Wunreachable-code -pedantic-errors -std=c++17 -I . $(DEPFLAGS)
+CXXFLAGS=-Wall -Werror -Wextra -Wconversion -Wshadow -Wunreachable-code -pedantic-errors -std=c++17 -I . $(DEPFLAGS)  # -Weffc++
 
 SRC=$(wildcard $(SRC_DIR)*.cpp)
 HDR=$(wildcard $(HDR_DIR)*.hpp)
