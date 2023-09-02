@@ -2,6 +2,8 @@
 *.o
 # ignore all .d files
 *.d
+# ignore all .env files
+.env
 # ignore all .cache directores
 .cache/
 # ignore all bin directores
