@@ -1,8 +1,3 @@
-#!/bin/bash
-# author: Whizzzkid (me@nishantarora.in)
-# this file is the work of Whizzkid (https://github.com/whizzzkid/bing-wallpapers-for-linux/blob/master/bingwallpaper)
-# added some modifications as it was not working in fedora linux
-
 # Base URL.
 bing="http://www.bing.com"
 
