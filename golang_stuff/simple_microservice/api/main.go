@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"go/token"
 	"log"
 	"net/http"
 	"os"
@@ -12,14 +11,14 @@ import (
 
 var MySigninKey = []byte(os.Getenv("SECRET_KEY"))
 
-func HomePage(w http.ResponseWriter, r *http.Request) {
+func HomePage(w http.ResponseWriter, _ *http.Request) {
 	fmt.Fprintf(w, "Super Secret Info")
 }
 
 func IsAuthorized(endpoint func(http.ResponseWriter, *http.Request)) http.Handler {
-	return http.HandleFunc(func(w http.ResponseWriter, r *http.Request){
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		if r.Header["Token"] != nil {
-			jwt.Parse(r.Header["Token"][0], func(token *jwt.Token) (interface{}, error) {
+			token, err := jwt.Parse(r.Header["Token"][0], func(token *jwt.Token) (interface{}, error) {
 				if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
 					return nil, fmt.Errorf("Invalid signin method")
 				}
@@ -38,15 +37,15 @@ func IsAuthorized(endpoint func(http.ResponseWriter, *http.Request)) http.Handle
 				return MySigninKey, nil
 			})
 
-			if error != nil {
-				fmt.Printf(w, error.Error())
+			if err != nil {
+				fmt.Fprintf(w, err.Error())
 			}
 
 			if token.Valid {
 				endpoint(w, r)
-			} else {
-				fmt.Println("")
 			}
+		} else {
+				fmt.Fprintf(w, "No authorization token provided")
 		}
 	})
 }
