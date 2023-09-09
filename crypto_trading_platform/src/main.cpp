@@ -1,14 +1,23 @@
 // NOLINTBEGIN
 // NOLINTEND
-#include "../hdr/helper.hpp"
+#include "helper.hpp"
 #include <iostream>
 #include <vector>
 
+std::vector<std::string> Tokenise(std::string, char, char esc = ' ');
+
 int main() {
 
+    char ch = 'n';
     Helper app{};
-    app.Init();
 
+    if (ch == 'y')
+        app.Init();
+
+    std::vector<std::string> result = Tokenise("thing1,,thing2,thing3", ',', '"');
+    for (auto& var : result) {
+        std::cout << var << '\n';
+    }
     /*
     for (auto& order : orders) {
         order.GetValue();

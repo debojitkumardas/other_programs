@@ -1,4 +1,4 @@
-#include "../hdr/orderbookentry.hpp"
+#include "orderbookentry.hpp"
 #include <iostream>
 
 OrderBookEntry::OrderBookEntry(double _price, double _amount, std::string _timestamp, std::string _product, OrderBookType _order_type)

@@ -1,10 +1,8 @@
-#include "../hdr/helper.hpp"
+#include "helper.hpp"
 #include <iostream>
 #include <vector>
 
-Helper::Helper() {
-    //
-}
+Helper::Helper() : orders() { }
 
 void Helper::Init() {
     int input;
