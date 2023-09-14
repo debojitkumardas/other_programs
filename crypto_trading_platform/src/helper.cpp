@@ -1,13 +1,16 @@
 #include "helper.hpp"
+#include "csv_reader.hpp"
+#include <cstdlib>
 #include <iostream>
 #include <vector>
 
 Helper::Helper() : orders() { }
 
-void Helper::Init() {
+void Helper::Init(std::string file_path) {
     int input;
 
-    LoadOrderBook();
+    LoadOrderBook(file_path);
+
     while (true) {
         PrintMenu();
         input = GetUserOption();
@@ -15,9 +18,8 @@ void Helper::Init() {
     }
 }
 
-void Helper::LoadOrderBook() {
-    orders.emplace_back(10000, 0.002, "2020/03/17 17:01:24.884492", "BTC/USDT", OrderBookType::bid);
-    orders.emplace_back(20000, 0.002, "2020/03/17 17:01:24.884492", "BTC/USDT", OrderBookType::bid);
+void Helper::LoadOrderBook(std::string file_path) {
+    orders = CSVReader::ReadCSV(file_path);
 }
 
 void Helper::PrintMenu() {
@@ -27,6 +29,7 @@ void Helper::PrintMenu() {
     std::cout << "4. Make a bid \n";
     std::cout << "5. Print Wallet \n";
     std::cout << "6. Continue \n";
+    std::cout << "0. Exit \n";
     std::cout << "===========================\n";
 }
 void Helper::PrintHelp() {
@@ -34,6 +37,17 @@ void Helper::PrintHelp() {
 }
 void Helper::PrintMarketStats() {
     std::cout << "Oderbook contains: " << orders.size() << " entries.\n";
+    unsigned int bids = 0;
+    unsigned int asks = 0;
+
+    for (auto& ord : orders) {
+        if (ord.CheckOrderType(ord) == OrderBookType::ask)
+            asks++;
+        if (ord.CheckOrderType(ord) == OrderBookType::bid)
+            bids++;
+    }
+
+    std::cout << "asks: " << asks << '\t' << "bids: " << bids << '\n';
 }
 void Helper::EnterOffer() {
     std::cout << "Make an offer - enter the amount \n";
@@ -50,13 +64,16 @@ void Helper::GotoNextTimeframe() {
 int Helper::GetUserOption() {
     int user_option;
 
-    std::cout << "Type in 1-6: ";
+    std::cout << "Type in 0-6: ";
     std::cin >> user_option;
     std::cout << "You chose: " << user_option << '\n';
     return user_option;
 }
 void Helper::ProcessUserOption(int user_option) {
     switch (user_option) {
+        case 0:
+            std::cout << "Exiting!!\n";
+            exit(-1);
         case 1: // bad input
             PrintHelp();
             break;

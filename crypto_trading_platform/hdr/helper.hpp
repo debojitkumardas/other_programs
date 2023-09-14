@@ -1,6 +1,7 @@
 #pragma once
 
 #include "orderbookentry.hpp"
+#include <string>
 #include <vector>
 
 class Helper {
@@ -9,11 +10,11 @@ private:
 
 public:
     Helper();
-    /** Call this to start the simulation */
-    void Init();
+    /** Call this to start the simulation by providing the source of data */
+    void Init(std::string file_path);
 
 private:
-    void LoadOrderBook();
+    void LoadOrderBook(std::string);
     void PrintMenu();
     void PrintHelp();
     void PrintMarketStats();
